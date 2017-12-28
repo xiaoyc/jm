@@ -135,7 +135,7 @@
           <stringProp name="query">SELECT tk.DeviceId,
 dc.DeviceCertificate  as DeviceCertificate ,
 /* DeviceToken */
-&apos;AuthToken1jZDfb9sgEID_mvjNlgGD8YMfPC9d0imqtC4vfZkwXBJWDBk_0qR__Ui3btK0SpXQcTq-O-AbktJgJfSHGI9hQYYFvsnLg7louz8KHy-VglM1-yqeiDQuqUq6OSPFOoQE_p_GEMNb_BX8y8kDzCJU59kEJ46V8_tcfQo54LqmeXsJWoGNOl5yKo3Q8_Xcihn6GnXLEd8sS9zgsWz4yMuuI7SkGFM6IlSTsS0-wklLWKv30YOULtmY8fw2e9bCXYTdf5uDsoumPrg4C22un8lzdyKZuA3g30F_BStexqpfbf8XMWvpXXC7-FvXqwp-VcHeUOGdgT6kKUivJ_DFYIx7AvV6Y-iFMcWQ4sF5_SyidnYjwmNPeI07ijhCmLCsgKOGUYYZR3XbEVYsz0ftIdzZHlHUEEY4Y8XoQURQf4o1zsXPcPmUtOpb4ITudqhsoGVl0whRTqJFpZomLjCvGy5FsdoM4_1qwJT19ws8bcnt9uFMN6eN7LaPKX6_XZEf69Xmuf1wF20Hg0j1-kt6eFoQ9RM&apos; as DeviceToken
+&apos;AuthToken1jZDbatwwEEC_Zv1mI-viy4MfXGeTDUtalraUPBVZGq_VyJKR5M26X19t2iUQGgiI0TA6M5JOu0gFRkAzhjD7DWk3-DYuB3pV5jhzF9ZMwimbXBZORGi7yEzYKSLJvfcLuDeNPvj3-Av4yokRJu6z86S95XNm3TFWn30MGCEWt5egJJigwhpTobmaLueGT9CgvN52-HabYoq7lFZdldY1YSnDmLEuzxHpyuQGTkrAvfwY3QphFxMiHt9mzorblZvjz8lLs6FotGHiSl8-E-cOfNHhuwf3AfobGP4yVv5t-7-ISQlnvR3CP11XFdVFRfGOCmc1NH7pvXCqB5e0WttnkNcbfcO1TtoljNap3zwoax64f2pIhXDN8irPMSmigiqnBStwUeWorEmRbM-zcuC_mCZnOaWUYFYmnQMeQF6LpC5icQ_r3aJkU9YlGWjN0h4JktK-H1Je9ZAiPDBCCg5VNSS7h7b7umsxK5pzTZ-MCJ9nz4UZT_TH4XCz2-vHX3efHqW0B7ZtW7XBPezLHm2I_AM&apos; as DeviceToken
 
 FROM Tokens tk join DeviceCertificates dc on dc.DeviceID=tk.DeviceId
 
@@ -883,7 +883,7 @@ f.close();</stringProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET S1/sts/Ticket --------------------------------- loop " enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET S1/sts/Ticket" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -1884,12 +1884,11 @@ vars.putObject(&quot;dateTomorrowStr&quot;,dateTomorrowStr);
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-        </hashTree>
-        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
-          <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="script">import java.time.ZonedDateTime;
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import java.time.ZonedDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.Period;
@@ -1909,8 +1908,9 @@ SimpleDateFormat sdformat = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss a&quo
 String LgTime = sdformat.format(date);
 
 vars.putObject(&quot;originTime&quot;,LgTime.replace(&quot;-&quot;,&quot;\\/&quot;));</stringProp>
-        </BeanShellPreProcessor>
-        <hashTree/>
+          </BeanShellPreProcessor>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  /S1/dvrproxy/v1/subscriber-recorders" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
