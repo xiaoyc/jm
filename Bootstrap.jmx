@@ -135,7 +135,7 @@
           <stringProp name="query">SELECT tk.DeviceId,
 dc.DeviceCertificate  as DeviceCertificate ,
 /* DeviceToken */
-&apos;AuthToken1jZDfb9sgEID_mvjNFr9jP_jB8pK1mqKmW7fXisAlRsWQAU7i_vUj3bpJ1SpVQsfp-O6Ar5u0AaegHVI6xgXtFmSdVwA7G3c4ypDmSsOpGkOVTlRZP-lK-TEjxW2ME4Q3jTHF9_gr-I9TA4wyVpfRRi-PlQ-HXD3HHAhCPG8vwWhwyaQ5p8pKM17PnRyhRbhZ9WS9Kgkjfcnqvi6bhvKSE8J5jzGi_bL4BCej4FZ_jO6U8pNLGc9vcxcj_Szd4XGM2i0YGnwapbHXz-S5eznZ9D1C-AD9AE6-jNW_2_4vYjQq-Oj36Y-uVxX1VYV4R0XwFto47aIKZgeh6Kz1Z9CvN8ZWWlt0Uxp8MM8yGe82Mj61tEak4bjGmFCRFdSYCS6IqDFaNlQUq8vRBIh3rsUcMyIaQknRB5AJ9N8iF7n4BebPk9EtZphJhvZlveSoZKBYuUM1yoIV5VQTgmtZ3Gy6_ttNR7hop_Wl6w3Yh5-wPSztYQ_z1roh9c39Zvf0FSH_405sh2d1vl9Q_Qs&apos; as DeviceToken
+&apos;AuthToken1jZDfb9sgEID_mvjNlgGD8YMfPC9d0imqtC4vfZkwXBJWDBk_0qR__Ui3btK0SpXQcTq-O-AbktJgJfSHGI9hQYYFvsnLg7louz8KHy-VglM1-yqeiDQuqUq6OSPFOoQE_p_GEMNb_BX8y8kDzCJU59kEJ46V8_tcfQo54LqmeXsJWoGNOl5yKo3Q8_Xcihn6GnXLEd8sS9zgsWz4yMuuI7SkGFM6IlSTsS0-wklLWKv30YOULtmY8fw2e9bCXYTdf5uDsoumPrg4C22un8lzdyKZuA3g30F_BStexqpfbf8XMWvpXXC7-FvXqwp-VcHeUOGdgT6kKUivJ_DFYIx7AvV6Y-iFMcWQ4sF5_SyidnYjwmNPeI07ijhCmLCsgKOGUYYZR3XbEVYsz0ftIdzZHlHUEEY4Y8XoQURQf4o1zsXPcPmUtOpb4ITudqhsoGVl0whRTqJFpZomLjCvGy5FsdoM4_1qwJT19ws8bcnt9uFMN6eN7LaPKX6_XZEf69Xmuf1wF20Hg0j1-kt6eFoQ9RM&apos; as DeviceToken
 
 FROM Tokens tk join DeviceCertificates dc on dc.DeviceID=tk.DeviceId
 
@@ -686,7 +686,7 @@ f.close();</stringProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /S1/duplex/longpoll/events/" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /S1/duplex/longpoll/events/" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="continuationToken" elementType="HTTPArgument">
@@ -1089,15 +1089,22 @@ f.close();</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  /catalogcache/s1-mr-schedules-data-201712200516/restrictionsmap_20171222.slab" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  /catalogcache/s1-mr-schedules-metadata/settings.xml" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain">${appgw-storage-server}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/catalogcache/s1-mr-schedules-data-201712200516/restrictionsmap_20171222.slab</stringProp>
+          <stringProp name="HTTPSampler.path">/catalogcache/s1-mr-schedules-metadata/settings.xml</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1149,6 +1156,186 @@ f.close();</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="true">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">currentEpgVersion</stringProp>
+            <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">/EPGMetadata/CurrentEPGVersion[text()]</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  /catalogcache/s1-mr-schedules-data/restrictionsmap.slab-Today" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${appgw-storage-server}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/catalogcache/s1-mr-schedules-data-${currentEpgVersion}/restrictionsmap_${dateNowStr}.slab</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">${accept}</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">${accept-language}</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">${accept-encoding}</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">${user-agent}</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">${host}</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">${connection}</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">OAUTH2 access_token=&quot;${token}&quot;</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">UA-DeviceId</stringProp>
+                <stringProp name="Header.value">${deviceid}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import java.util.Date;
+import java.util.SimpleTimeZone;
+import java.util.TimeZone;
+import java.text.SimpleDateFormat;
+
+Date d = new Date();  
+
+SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMdd&quot;);  
+       
+sdf.setTimeZone(TimeZone.getTimeZone(&quot;UTC&quot;));
+       	
+String dateNowStr = sdf.format(d); 
+
+vars.putObject(&quot;dateNowStr&quot;,dateNowStr);
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  /catalogcache/s1-mr-schedules-data/restrictionsmap.slab-Tomorrow" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${appgw-storage-server}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/catalogcache/s1-mr-schedules-data-${currentEpgVersion}/restrictionsmap_${dateTomorrowStr}.slab</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">${accept}</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">${accept-language}</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">${accept-encoding}</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">${user-agent}</stringProp>
+              </elementProp>
+              <elementProp name="Host" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">${host}</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">${connection}</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">OAUTH2 access_token=&quot;${token}&quot;</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">UA-DeviceId</stringProp>
+                <stringProp name="Header.value">${deviceid}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import java.util.Date;
+import java.util.SimpleTimeZone;
+import java.util.TimeZone;
+import java.text.SimpleDateFormat;
+
+Date d1 = new Date();
+
+Date d2 = new Date();
+
+d2.setTime(d1.getTime() + 1 * 24 * 60 * 60 * 1000);
+
+SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMdd&quot;);  
+       
+sdf.setTimeZone(TimeZone.getTimeZone(&quot;UTC&quot;));
+       	
+String dateTomorrowStr = sdf.format(d2); 
+
+vars.putObject(&quot;dateTomorrowStr&quot;,dateTomorrowStr);
+</stringProp>
+          </BeanShellPreProcessor>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /S1/subscriber/v3/rights/live/channel-map" enabled="true">
@@ -1603,17 +1790,17 @@ f.close();</stringProp>
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">[ {&quot;postTimeUtc&quot;: 1513927761006,  &quot;clientBuildVersion&quot;:&quot;3.3.1437.0&quot;, &quot;accountType&quot;:&quot;NAPA&quot;  },{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927739120,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.WelcomeSplash&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:28:59 AM&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_BOX_POWER&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;BuildNumber&quot; : &quot;1437&quot;,&quot;ClientType&quot; : &quot;PCPC_Microsoft Windows NT 6.2.9200.0&quot;,&quot;BuildFlavor&quot; : &quot;NONDEBUG&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:28:59 AM&quot;,&quot;startTimeUtc&quot; : 1513927739818,&quot;PowerState&quot; : &quot;ON&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927739853,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.ServiceSelector&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:28:59 AM&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927752579,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.WelcomeSplash&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:12 AM&quot;},&#xd;
-{&quot;eventName&quot; : &quot;SM_REBOOT&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;EgressHDStreams&quot; : &quot;3&quot;,&quot;IngressBroadcastStreams&quot; : &quot;0&quot;,&quot;EgressSDStreams&quot; : &quot;0&quot;,&quot;startTimeUtc&quot; : 1513927757629,&quot;WanSDStreams&quot; : &quot;0&quot;,&quot;IngressHDStreams&quot; : &quot;3&quot;,&quot;IngressSDStreams&quot; : &quot;0&quot;,&quot;WanHDStreams&quot; : &quot;0&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:17 AM&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;WanBroadcastStreams&quot; : &quot;0&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_BOX_POWER&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;BuildNumber&quot; : &quot;1437&quot;,&quot;ClientType&quot; : &quot;PCPC_Microsoft Windows NT 6.2.9200.0&quot;,&quot;BuildFlavor&quot; : &quot;NONDEBUG&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:17 AM&quot;,&quot;startTimeUtc&quot; : 1513927757697,&quot;PowerState&quot; : &quot;ON&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927760033,&quot;AppName&quot; : &quot;MPF: E:\\MF\\PCClient\\mr_client_napa_1437_nondebug\\Content\\channeltvhd.xml&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:20 AM&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927760065,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.VideoFullScreen&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:20 AM&quot;},&#xd;
-{&quot;eventName&quot; : &quot;SM_STREAM_REQUEST&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;StreamType&quot; : &quot;Live&quot;,&quot;StreamPriority&quot; : &quot;300000&quot;,&quot;SMHDRecordings&quot; : &quot;0&quot;,&quot;SMIngressBandwidthUsed&quot; : &quot;6500000&quot;,&quot;SMIngressSDStreamsUsed&quot; : &quot;0&quot;,&quot;SMSDLocalPlaybacks&quot; : &quot;0&quot;,&quot;StreamDefinition&quot; : &quot;HD&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;SMWanBandwidthUsed&quot; : &quot;6500000&quot;,&quot;SMSDRecordings&quot; : &quot;0&quot;,&quot;SMSDRemotePlaybacks&quot; : &quot;0&quot;,&quot;SMWanHDStreamsUsed&quot; : &quot;1&quot;,&quot;SMEgressBandwidthUsed&quot; : &quot;0&quot;,&quot;SMWanSDStreamsUsed&quot; : &quot;0&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:20 AM&quot;,&quot;SMHDLocalPlaybacks&quot; : &quot;0&quot;,&quot;SMHDRemotePlaybacks&quot; : &quot;0&quot;,&quot;startTimeUtc&quot; : 1513927760225,&quot;SMIngressHDStreamsUsed&quot; : &quot;1&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927760253,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.PeekHostPage&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:20 AM&quot;},&#xd;
-{&quot;eventName&quot; : &quot;CLIENT_INITIALIZED&quot;,&quot;TimeFired&quot; : &quot;2017-12-22T07:29:21Z&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : 1513927760976,&quot;InitializationTime&quot; : &quot;12\/22\/2017 07:29:20&quot;,&quot;OriginTime&quot; : &quot;12\/22\/2017 7:29:20 AM&quot;}&#xd;
+                <stringProp name="Argument.value">[ {&quot;postTimeUtc&quot;: &quot;${startTimeUTCInt}&quot;,  &quot;clientBuildVersion&quot;:&quot;3.3.1437.0&quot;, &quot;accountType&quot;:&quot;NAPA&quot;  },{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.WelcomeSplash&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_BOX_POWER&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;BuildNumber&quot; : &quot;1437&quot;,&quot;ClientType&quot; : &quot;PCPC_Microsoft Windows NT 6.2.9200.0&quot;,&quot;BuildFlavor&quot; : &quot;NONDEBUG&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;PowerState&quot; : &quot;ON&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.ServiceSelector&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.WelcomeSplash&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;},&#xd;
+{&quot;eventName&quot; : &quot;SM_REBOOT&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;EgressHDStreams&quot; : &quot;3&quot;,&quot;IngressBroadcastStreams&quot; : &quot;0&quot;,&quot;EgressSDStreams&quot; : &quot;0&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;WanSDStreams&quot; : &quot;0&quot;,&quot;IngressHDStreams&quot; : &quot;3&quot;,&quot;IngressSDStreams&quot; : &quot;0&quot;,&quot;WanHDStreams&quot; : &quot;0&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;WanBroadcastStreams&quot; : &quot;0&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_BOX_POWER&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;BuildNumber&quot; : &quot;1437&quot;,&quot;ClientType&quot; : &quot;PCPC_Microsoft Windows NT 6.2.9200.0&quot;,&quot;BuildFlavor&quot; : &quot;NONDEBUG&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;PowerState&quot; : &quot;ON&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;AppName&quot; : &quot;MPF&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.VideoFullScreen&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;},&#xd;
+{&quot;eventName&quot; : &quot;SM_STREAM_REQUEST&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;StreamType&quot; : &quot;Live&quot;,&quot;StreamPriority&quot; : &quot;300000&quot;,&quot;SMHDRecordings&quot; : &quot;0&quot;,&quot;SMIngressBandwidthUsed&quot; : &quot;6500000&quot;,&quot;SMIngressSDStreamsUsed&quot; : &quot;0&quot;,&quot;SMSDLocalPlaybacks&quot; : &quot;0&quot;,&quot;StreamDefinition&quot; : &quot;HD&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;SMWanBandwidthUsed&quot; : &quot;6500000&quot;,&quot;SMSDRecordings&quot; : &quot;0&quot;,&quot;SMSDRemotePlaybacks&quot; : &quot;0&quot;,&quot;SMWanHDStreamsUsed&quot; : &quot;1&quot;,&quot;SMEgressBandwidthUsed&quot; : &quot;0&quot;,&quot;SMWanSDStreamsUsed&quot; : &quot;0&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;,&quot;SMHDLocalPlaybacks&quot; : &quot;0&quot;,&quot;SMHDRemotePlaybacks&quot; : &quot;0&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;SMIngressHDStreamsUsed&quot; : &quot;1&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_APP&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;AppName&quot; : &quot;Microsoft.TV2.UI.PeekHostPage&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;},&#xd;
+{&quot;eventName&quot; : &quot;CLIENT_INITIALIZED&quot;,&quot;TimeFired&quot; : &quot;${startTimeUTC}&quot;,&quot;Severity&quot; : &quot;Information&quot;,&quot;startTimeUtc&quot; : &quot;${startTimeUTCInt}&quot;,&quot;InitializationTime&quot; : &quot;${originTime}&quot;,&quot;OriginTime&quot; : &quot;${originTime}&quot;}&#xd;
 ]&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -1698,6 +1885,32 @@ f.close();</stringProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="script">import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+ZonedDateTime zdt = ZonedDateTime.now(ZoneOffset.UTC);
+
+vars.putObject(&quot;startTimeUTC&quot;,zdt.format(DateTimeFormatter.ISO_INSTANT));
+
+Date date =Date.from(zdt.toInstant());
+
+vars.putObject(&quot;startTimeUTCInt&quot;, Long.toString(date.getTime()));
+
+SimpleDateFormat sdformat = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss a&quot;);
+String LgTime = sdformat.format(date);
+
+vars.putObject(&quot;originTime&quot;,LgTime.replace(&quot;-&quot;,&quot;\\/&quot;));</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  /S1/dvrproxy/v1/subscriber-recorders" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1923,7 +2136,7 @@ f.close();</stringProp>
               </elementProp>
               <elementProp name="MaximumStartTime" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">2017-12-27T02:55:04.1843918Z</stringProp>
+                <stringProp name="Argument.value">${maximumStartTime}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">MaximumStartTime</stringProp>
@@ -2006,6 +2219,23 @@ f.close();</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
+ZonedDateTime zdt = ZonedDateTime.now(ZoneOffset.UTC);
+ 
+ZonedDateTime newZoneDateTime = zdt.plus(Period.ofDays(1));
+
+vars.putObject(&quot;maximumStartTime&quot;,newZoneDateTime.format(DateTimeFormatter.ISO_INSTANT));</stringProp>
+          </BeanShellPreProcessor>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PUT  /S1/subscriber/devices/recorderId/pairings" enabled="true">
