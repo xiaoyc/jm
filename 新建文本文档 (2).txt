@@ -1,0 +1,48 @@
+use resource
+
+
+create table Post
+(
+Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Title nvarchar(500),
+Description nvarchar(1000),
+Content nvarchar(5000),
+VideoUrl  nvarchar(1000),
+Image longblob ,
+CategoryId int references Category(Id),
+CreateTime datetime 
+)
+
+
+create table Category
+(
+Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Title nvarchar(5000)
+)
+
+create table Tag
+(
+Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Title nvarchar(500)
+)
+
+create table PostTag
+(
+Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+PostId int references Post(Id),
+TagId int references Tag(Id)
+)
+
+
+create table Actor
+(
+Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+Name nvarchar(5000)
+)
+
+create table PostActor
+(
+Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+PostId int references Post(Id),
+ActorId int references Tag(Id)
+)
